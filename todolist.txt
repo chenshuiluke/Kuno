@@ -1,1 +1,1 @@
-Make world an extern 2d array.
+Finish command recognition.
