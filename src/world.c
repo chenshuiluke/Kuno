@@ -1,6 +1,8 @@
 #include "world.h"
 void initializeWorld()
 {
+	cursorXPos = 0;
+	cursorYPos = 0;
 	int counter = 0;
 	for(counter = 0; counter < WORLD_HEIGHT; counter++)
 	{
@@ -13,7 +15,19 @@ void printWorld()
 	int counter = 0;
 	for(counter = 0; counter < WORLD_HEIGHT; counter++)
 	{
-		printf("%s\n", world[counter]);
+		int counter1=0;
+		for(counter1 = 0; counter1 < WORLD_WIDTH-1; counter1++)
+		{
+			if(counter == cursorYPos && counter1 == cursorXPos)
+			{
+				printf("@");
+			}
+			else
+			{
+				printf("%c", world[counter][counter1]);
+			}
+		}
+		puts("");
 	}
 }
 void getInput()
@@ -38,15 +52,23 @@ void getInput()
 			{
 				case MOVE_UP:
 					puts("Move up");
+					if(cursorYPos > 0)
+						cursorYPos--;
 				break;
 				case MOVE_DOWN:
 					puts("Move down");
+					if(cursorYPos<WORLD_HEIGHT-1)
+					cursorYPos++;
 				break;
 				case MOVE_LEFT:
 					puts("Move left");
+					if(cursorXPos > 0)
+						cursorXPos--;
 				break;
 				case MOVE_RIGHT:
 					puts("Move right");
+					if(cursorXPos < WORLD_WIDTH-1);
+						cursorXPos++;
 				break;
 				default:
 					puts("Unknown command.");
@@ -55,5 +77,7 @@ void getInput()
 			instructions = strtok(NULL, " ");
 		}
 	}
+	wipe();
+	printWorld();
 	
 }

@@ -15,7 +15,15 @@
 	#define MOVE_DOWN 's'
 	#define MOVE_RIGHT 'd'
 	#define MOVE_LEFT 'a'
-	
+	#ifndef WIN32
+	#define COMMAND "clear" //Clears a linux console screen
+	#else
+	#define COMMAND "cls" //Clears a windows console screen
+	#endif
+	 
+	#define wipe() system( COMMAND )	
+	int cursorXPos;
+	int cursorYPos;
 	char world[WORLD_HEIGHT][WORLD_WIDTH+1]; //Space for null terminator
 	void initializeWorld();
 	void printWorld();
