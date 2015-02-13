@@ -35,20 +35,20 @@ void getInput()
 	printf("Please enter the sequence of instructions you want to execute.\n");
 	printf("You can enter up to five(5) instructions, excluding the spaces.\n");
 	printf("Enter only 'h' if you want detailed help:\n");
-	char temp[11];
-	memset(temp, '\0', 10);
-	fgets(temp,10, stdin);
+	char instructions[11];
+	memset(instructions, '\0', 10);
+	fgets(instructions,10, stdin);
 	
-	if(!strcmp(temp,"h") || temp[0] == 'h')
+	if(!strcmp(instructions,"h") || instructions[0] == 'h')
 	{
 //		printHelp();
 	}
 	else
 	{
-		char * instructions = strtok(temp, " ");
-		while(instructions != NULL)
+		int counter = 0;
+		for(counter = 0; counter < strlen(instructions); counter++)
 		{
-			switch(instructions[0])
+			switch(instructions[counter])
 			{
 				case MOVE_UP:
 					puts("Move up");
@@ -74,7 +74,6 @@ void getInput()
 					puts("Unknown command.");
 				break;
 			}
-			instructions = strtok(NULL, " ");
 		}
 	}
 	wipe();
