@@ -49,29 +49,64 @@ void getInput()
 	else
 	{
 		int counter = 0;
-		for(counter = 0; counter < strlen(instructions); counter++)
+		int numProcessed = 0;
+		for(counter = 0; counter < strlen(instructions)&&numProcessed < 5; counter++)
 		{
+				
 			switch(instructions[counter])
 			{
 				case MOVE_UP:
-					printToMenu("Move up");
 					if(cursorYPos > 0)
+					{
+						printToMenu("Move up");
 						cursorYPos--;
+						numProcessed++;	
+					}
+					else
+					{
+						printToMenu("You can't move any further up.");
+					}
 				break;
 				case MOVE_DOWN:
-					printToMenu("Move down");
 					if(cursorYPos<WORLD_HEIGHT-1)
-					cursorYPos++;
+					{
+						printToMenu("Move down");
+						cursorYPos++;
+						numProcessed++;
+					}
+					else
+					{
+						printToMenu("You can't move any further down.");
+					}
 				break;
 				case MOVE_LEFT:
-					printToMenu("Move left");
 					if(cursorXPos > 0)
+					{
+						printToMenu("Move left");
 						cursorXPos--;
+						numProcessed++;
+					}
+					else
+					{
+						printToMenu("You can't move further to the left.");
+					}
 				break;
 				case MOVE_RIGHT:
-					printToMenu("Move right");
-					if(cursorXPos < WORLD_WIDTH-1);
+					if(cursorXPos < WORLD_WIDTH-1) 
+					{	
+						printToMenu("Move right");
 						cursorXPos++;
+						numProcessed++;	
+					}
+					else
+					{
+						printToMenu("You can't move further to the right.");
+					}
+				break;
+				case ' ':
+			
+				break;
+				case '\n':
 				break;
 				default:
 					printToMenu("Unknown command.");

@@ -17,7 +17,12 @@ void printToMenu(char * string)
 	}
 	else
 	{
-		strcpy(menu[currentPrintingLine], string);
+		if(currentPrintingLine >= MENU_HEIGHT)
+		{
+			return;	
+		}
+		else
+			strcpy(menu[currentPrintingLine], string);
 	}
 	currentPrintingLine++;
 }
@@ -26,7 +31,8 @@ void releaseBuffer()
 	int counter = 0;
 	for(counter = 0; counter < MENU_HEIGHT; counter++)
 	{
-		printf("%s\n", menu[counter]);
+		if(menu[counter][0] != '\0')
+			printf("%s\n", menu[counter]);
 	}	
-	initializeMenu();
+	currentPrintingLine=0;
 }
