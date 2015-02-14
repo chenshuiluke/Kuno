@@ -5,7 +5,7 @@
 	
 	//World dimensions
 	#define WORLD_WIDTH 80
-	#define WORLD_HEIGHT 20
+	#define WORLD_HEIGHT 10
 	
 	//World block types
 	#define FLAT_LAND '-'

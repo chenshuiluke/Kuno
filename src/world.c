@@ -1,4 +1,5 @@
 #include "world.h"
+#include "menu.h"
 void initializeWorld()
 {
 	cursorXPos = 0;
@@ -32,9 +33,11 @@ void printWorld()
 }
 void getInput()
 {
-	printf("Please enter the sequence of instructions you want to execute.\n");
-	printf("You can enter up to five(5) instructions, excluding the spaces.\n");
-	printf("Enter only 'h' if you want detailed help:\n");
+	printToMenu("Please enter the sequence of instructions you want to execute.");
+	printToMenu("You can enter up to five(5) instructions, excluding the spaces.");
+	printToMenu("Enter only 'h' if you want detailed help:");
+	releaseBuffer();
+	initializeMenu();
 	char instructions[11];
 	memset(instructions, '\0', 10);
 	fgets(instructions,10, stdin);
@@ -51,32 +54,33 @@ void getInput()
 			switch(instructions[counter])
 			{
 				case MOVE_UP:
-					puts("Move up");
+					printToMenu("Move up");
 					if(cursorYPos > 0)
 						cursorYPos--;
 				break;
 				case MOVE_DOWN:
-					puts("Move down");
+					printToMenu("Move down");
 					if(cursorYPos<WORLD_HEIGHT-1)
 					cursorYPos++;
 				break;
 				case MOVE_LEFT:
-					puts("Move left");
+					printToMenu("Move left");
 					if(cursorXPos > 0)
 						cursorXPos--;
 				break;
 				case MOVE_RIGHT:
-					puts("Move right");
+					printToMenu("Move right");
 					if(cursorXPos < WORLD_WIDTH-1);
 						cursorXPos++;
 				break;
 				default:
-					puts("Unknown command.");
+					printToMenu("Unknown command.");
 				break;
 			}
 		}
 	}
 	wipe();
 	printWorld();
-	
+	releaseBuffer();		
 }
+
