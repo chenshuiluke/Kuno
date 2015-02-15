@@ -3,6 +3,7 @@
 int main()
 {
 	initializeWorld();	
+	initializeMenu();
 	printWorld();
 	getInput();
 	return 0;

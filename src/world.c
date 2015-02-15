@@ -33,11 +33,8 @@ void printWorld()
 }
 void getInput()
 {
-	printToMenu("Please enter the sequence of instructions you want to execute.");
-	printToMenu("You can enter up to five(5) instructions, excluding the spaces.");
-	printToMenu("Enter only 'h' if you want detailed help:");
+	printToMessages("Enter commands");
 	releaseBuffer();
-	initializeMenu();
 	char instructions[11];
 	memset(instructions, '\0', 10);
 	fgets(instructions,10, stdin);
@@ -58,49 +55,49 @@ void getInput()
 				case MOVE_UP:
 					if(cursorYPos > 0)
 					{
-						printToMenu("Move up");
+						printToMessages("Move up");
 						cursorYPos--;
 						numProcessed++;	
 					}
 					else
 					{
-						printToMenu("You can't move any further up.");
+						printToMessages("You can't move any further up.");
 					}
 				break;
 				case MOVE_DOWN:
 					if(cursorYPos<WORLD_HEIGHT-1)
 					{
-						printToMenu("Move down");
+						printToMessages("Move down");
 						cursorYPos++;
 						numProcessed++;
 					}
 					else
 					{
-						printToMenu("You can't move any further down.");
+						printToMessages("You can't move any further down.");
 					}
 				break;
 				case MOVE_LEFT:
 					if(cursorXPos > 0)
 					{
-						printToMenu("Move left");
+						printToMessages("Move left");
 						cursorXPos--;
 						numProcessed++;
 					}
 					else
 					{
-						printToMenu("You can't move further to the left.");
+						printToMessages("You can't move further to the left.");
 					}
 				break;
 				case MOVE_RIGHT:
 					if(cursorXPos < WORLD_WIDTH-1) 
 					{	
-						printToMenu("Move right");
+						printToMessages("Move right");
 						cursorXPos++;
 						numProcessed++;	
 					}
 					else
 					{
-						printToMenu("You can't move further to the right.");
+						printToMessages("You can't move further to the right.");
 					}
 				break;
 				case ' ':
@@ -109,7 +106,7 @@ void getInput()
 				case '\n':
 				break;
 				default:
-					printToMenu("Unknown command.");
+					printToMessages("Unknown command.");
 				break;
 			}
 		}
