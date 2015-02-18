@@ -33,6 +33,7 @@ void printWorld()
 }
 void getInput()
 {
+	printPlayerInfo(playerName);
 	printToMessages("Enter commands");
 	releaseBuffer();
 	char instructions[11];
@@ -111,6 +112,7 @@ void getInput()
 			}
 		}
 	}
+	printPlayerInfo(playerName);
 	wipe();
 	printWorld();
 	releaseBuffer();		

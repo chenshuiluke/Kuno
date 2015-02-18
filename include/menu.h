@@ -2,6 +2,7 @@
 #define MENU_H
 #include <stdio.h>
 #include <string.h>
+#include "player.h"
 #define MENU_HEIGHT 5
 #define MENU_WIDTH 80
 #define MESSAGE_MENU_WIDTH 20
@@ -19,5 +20,6 @@ void printUnitInfo(char *);
 void printPlayerInfo(char *);
 void addPadding(char *,  int);
 void initializeMenu();
+void releaseBuffer();
 #endif
 

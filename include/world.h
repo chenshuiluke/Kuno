@@ -2,6 +2,8 @@
 #define WORLD_H
 	#include <string.h>
 	#include <stdio.h>
+	#include <stdlib.h>
+	#include "menu.h"
 	
 	//World dimensions
 	#define WORLD_WIDTH 80
