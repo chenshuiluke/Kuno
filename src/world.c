@@ -30,7 +30,7 @@ void printWorld()
 			}
 			else
 			{
-				printf("%c", world[counter][counter1]);
+				printf("%c", world[counter][counter1].type);
 			}
 		}
 		puts("");
@@ -38,8 +38,13 @@ void printWorld()
 }
 void getInput(player currentPlayer)
 {
+	wipe();
 	printPlayerInfo(currentPlayer.playerName);//player.playerName
-	printToMessages("Enter commands");
+	char stringInfo[10];
+	memset(stringInfo, '\0', 9);
+	sprintf(stringInfo,"%d", currentPlayer.gold);
+	printPlayerInfo(stringInfo);
+	printWorld();
 	releaseBuffer();
 	char instructions[11];
 	memset(instructions, '\0', 10);
@@ -118,8 +123,14 @@ void getInput(player currentPlayer)
 		}
 	}
 	printPlayerInfo(currentPlayer.playerName);
+	memset(stringInfo, '\0', 9);
+	sprintf(stringInfo,"%d", currentPlayer.gold);
+	printPlayerInfo(stringInfo);
 	wipe();
 	printWorld();
 	releaseBuffer();		
+	char c;
+	printf("Press the enter key to continue...\n");
+	scanf("%c", &c);
 }
 

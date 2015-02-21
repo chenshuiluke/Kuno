@@ -15,3 +15,4 @@ void createOtherHumanPlayers();
 void createComputerPlayers();
 void createAllPlayerArray();
 void printAllPlayers();
+void startGame();

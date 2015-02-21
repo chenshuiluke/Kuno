@@ -18,7 +18,7 @@
 	#define MOVE_RIGHT 'd'
 	#define MOVE_LEFT 'a'
 	#ifndef WIN32
-	#define COMMAND "clear" //Clears a linux console screen
+	#define COMMAND "reset" //Clears a linux console screen
 	#else
 	#define COMMAND "cls" //Clears a windows console screen
 	#endif
