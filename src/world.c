@@ -36,9 +36,9 @@ void printWorld()
 		puts("");
 	}
 }
-void getInput()
+void getInput(player currentPlayer)
 {
-	printPlayerInfo(playerName);
+	printPlayerInfo(currentPlayer.playerName);//player.playerName
 	printToMessages("Enter commands");
 	releaseBuffer();
 	char instructions[11];
@@ -117,7 +117,7 @@ void getInput()
 			}
 		}
 	}
-	printPlayerInfo(playerName);
+	printPlayerInfo(currentPlayer.playerName);
 	wipe();
 	printWorld();
 	releaseBuffer();		

@@ -4,7 +4,7 @@
 	#include <stdio.h>
 	#include <stdlib.h>
 	#include "menu.h"
-	
+	#include "player.h"
 	//World dimensions
 	#define WORLD_WIDTH 80
 	#define WORLD_HEIGHT 10
@@ -37,6 +37,6 @@
 	tile world[WORLD_HEIGHT][WORLD_WIDTH+1]; //Space for null terminator
 	void initializeWorld();
 	void printWorld();
-	void getInput();
+	void getInput(player);
 	void printHelp();
 #endif

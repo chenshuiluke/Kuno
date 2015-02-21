@@ -1,12 +1,8 @@
 
 #include <stdio.h>
-#include "world.h"
+#include "game.h"
 int main()
 {
-	initializeWorld();	
-	initializeMenu();
-	getPlayerName();
-	printWorld();
-	getInput();
+	initializeEverything();
 	return 0;
 }
