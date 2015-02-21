@@ -7,8 +7,13 @@ void initializeWorld()
 	int counter = 0;
 	for(counter = 0; counter < WORLD_HEIGHT; counter++)
 	{
-		memset(world[counter], FLAT_LAND, WORLD_WIDTH-1);
-		world[WORLD_HEIGHT][WORLD_WIDTH]='\0';
+		int counter2 = 0;
+		for(counter2 = 0; counter2 < WORLD_WIDTH; counter2++)
+		{
+			world[counter][counter2].type = FLAT_LAND;
+			world[counter][counter2].movementCost = 1;
+			world[counter][counter2].defense = 10;
+		}
 	}
 }
 void printWorld()

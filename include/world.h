@@ -26,7 +26,15 @@
 	#define wipe() system( COMMAND )	
 	int cursorXPos;
 	int cursorYPos;
-	char world[WORLD_HEIGHT][WORLD_WIDTH+1]; //Space for null terminator
+	
+
+	typedef struct land
+	{
+		char type;
+		int movementCost;
+		int defense;
+	}tile;
+	tile world[WORLD_HEIGHT][WORLD_WIDTH+1]; //Space for null terminator
 	void initializeWorld();
 	void printWorld();
 	void getInput();
