@@ -2,8 +2,6 @@
 #include "menu.h"
 void initializeWorld()
 {
-	cursorXPos = 0;
-	cursorYPos = 0;
 	int counter = 0;
 	for(counter = 0; counter < WORLD_HEIGHT; counter++)
 	{
@@ -16,7 +14,7 @@ void initializeWorld()
 		}
 	}
 }
-void printWorld()
+void printWorld(player currentPlayer)
 {
 	int counter = 0;
 	for(counter = 0; counter < WORLD_HEIGHT; counter++)
@@ -24,7 +22,7 @@ void printWorld()
 		int counter1=0;
 		for(counter1 = 0; counter1 < WORLD_WIDTH-1; counter1++)
 		{
-			if(counter == cursorYPos && counter1 == cursorXPos)
+			if(counter == currentPlayer.cursorYPos && counter1 == currentPlayer.cursorXPos)
 			{
 				printf("@");
 			}
@@ -36,15 +34,15 @@ void printWorld()
 		puts("");
 	}
 }
-void getInput(player currentPlayer)
+void getInput(player * currentPlayer)
 {
 	wipe();
-	printPlayerInfo(currentPlayer.playerName);//player.playerName
+	printPlayerInfo(currentPlayer->playerName);//player.playerName
 	char stringInfo[10];
 	memset(stringInfo, '\0', 9);
-	sprintf(stringInfo,"%d", currentPlayer.gold);
+	sprintf(stringInfo,"%d", currentPlayer->gold);
 	printPlayerInfo(stringInfo);
-	printWorld();
+	printWorld(*currentPlayer);
 	releaseBuffer();
 	char instructions[11];
 	memset(instructions, '\0', 10);
@@ -64,10 +62,10 @@ void getInput(player currentPlayer)
 			switch(instructions[counter])
 			{
 				case MOVE_UP:
-					if(cursorYPos > 0)
+					if(currentPlayer->cursorYPos > 0)
 					{
 						printToMessages("Move up");
-						cursorYPos--;
+						currentPlayer->cursorYPos--;
 						numProcessed++;	
 					}
 					else
@@ -76,10 +74,10 @@ void getInput(player currentPlayer)
 					}
 				break;
 				case MOVE_DOWN:
-					if(cursorYPos<WORLD_HEIGHT-1)
+					if(currentPlayer->cursorYPos<WORLD_HEIGHT-1)
 					{
 						printToMessages("Move down");
-						cursorYPos++;
+						currentPlayer->cursorYPos++;
 						numProcessed++;
 					}
 					else
@@ -88,10 +86,10 @@ void getInput(player currentPlayer)
 					}
 				break;
 				case MOVE_LEFT:
-					if(cursorXPos > 0)
+					if(currentPlayer->cursorXPos > 0)
 					{
 						printToMessages("Move left");
-						cursorXPos--;
+						currentPlayer->cursorXPos--;
 						numProcessed++;
 					}
 					else
@@ -100,10 +98,10 @@ void getInput(player currentPlayer)
 					}
 				break;
 				case MOVE_RIGHT:
-					if(cursorXPos < WORLD_WIDTH-1) 
+					if(currentPlayer->cursorXPos < WORLD_WIDTH-1) 
 					{	
 						printToMessages("Move right");
-						cursorXPos++;
+						currentPlayer->cursorXPos++;
 						numProcessed++;	
 					}
 					else
@@ -122,12 +120,12 @@ void getInput(player currentPlayer)
 			}
 		}
 	}
-	printPlayerInfo(currentPlayer.playerName);
+	printPlayerInfo(currentPlayer->playerName);
 	memset(stringInfo, '\0', 9);
-	sprintf(stringInfo,"%d", currentPlayer.gold);
+	sprintf(stringInfo,"%d", currentPlayer->gold);
 	printPlayerInfo(stringInfo);
 	wipe();
-	printWorld();
+	printWorld(*currentPlayer);
 	releaseBuffer();		
 	char c;
 	printf("Press the enter key to continue...\n");

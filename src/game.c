@@ -16,8 +16,8 @@ void initializeEverything()
 		goto retry;
 	}
 	createAllPlayerArray();	
-	printAllPlayers();
 	initializeWorld();
+	printAllPlayers();
 	initializeMenu();
 	startGame();
 }
@@ -88,7 +88,64 @@ void printAllPlayers()
 	int counter = 0;
 	printf("Number of Players:%d\n", numOfPlayers);
 	for(counter = 0; counter <numOfPlayers; counter++)
+	{
 		printf("%s %d %d\n", allPlayers[counter].playerName, allPlayers[counter].gold, allPlayers[counter].numberOfUnits);
+		switch(counter)
+		{
+			case 1:
+				allPlayers[counter].cursorXPos = 0;
+				allPlayers[counter].cursorYPos = WORLD_HEIGHT/2;
+				world[allPlayers[counter].cursorYPos][allPlayers[counter].cursorXPos].type=FORT;
+			break;
+			case 2:
+				allPlayers[counter].cursorXPos = WORLD_WIDTH-2;
+				allPlayers[counter].cursorYPos = WORLD_HEIGHT/2;
+				world[allPlayers[counter].cursorYPos][allPlayers[counter].cursorXPos].type=FORT;
+			break;
+			case 3:
+				allPlayers[counter].cursorXPos = WORLD_WIDTH/2;
+				allPlayers[counter].cursorYPos = 0;
+				world[allPlayers[counter].cursorYPos][allPlayers[counter].cursorXPos].type=FORT;
+			break;
+			case 4:
+				allPlayers[counter].cursorXPos = WORLD_WIDTH/2;
+				allPlayers[counter].cursorYPos = WORLD_HEIGHT-1;
+				world[allPlayers[counter].cursorYPos][allPlayers[counter].cursorXPos].type=FORT;
+			break;
+			case 5:
+				allPlayers[counter].cursorXPos = 0;
+				allPlayers[counter].cursorYPos = 0; 
+				world[allPlayers[counter].cursorYPos][allPlayers[counter].cursorXPos].type=FORT;
+			break;
+			case 6:
+				allPlayers[counter].cursorXPos = WORLD_WIDTH-2;
+				allPlayers[counter].cursorYPos = 0; 
+				world[allPlayers[counter].cursorYPos][allPlayers[counter].cursorXPos].type=FORT;
+			break;
+			case 7:
+				allPlayers[counter].cursorXPos = 0;
+				allPlayers[counter].cursorYPos = WORLD_HEIGHT-1; 
+				world[allPlayers[counter].cursorYPos][allPlayers[counter].cursorXPos].type=FORT;
+
+			break;
+			case 8:
+				allPlayers[counter].cursorXPos = 0;
+				allPlayers[counter].cursorYPos = 0; 
+				world[allPlayers[counter].cursorYPos][allPlayers[counter].cursorXPos].type=FORT;
+			break;
+			case 9:
+
+				allPlayers[counter].cursorXPos = WORLD_WIDTH/4;
+				allPlayers[counter].cursorYPos = 0; 
+				world[allPlayers[counter].cursorYPos][allPlayers[counter].cursorXPos].type=FORT;
+			break;
+			case 10:
+				allPlayers[counter].cursorXPos = WORLD_WIDTH/4;
+				allPlayers[counter].cursorYPos = WORLD_HEIGHT-1; 
+				world[allPlayers[counter].cursorYPos][allPlayers[counter].cursorXPos].type=FORT;
+		break;
+		}
+	}
 }
 void startGame()
 {
@@ -99,7 +156,7 @@ void startGame()
 		{
 			if(allPlayers[count].type == HUMAN)
 			{
-				getInput(allPlayers[count]);
+				getInput(&allPlayers[count]);
 				initializeMenu();
 			}
 			else

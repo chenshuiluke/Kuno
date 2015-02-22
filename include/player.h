@@ -16,6 +16,8 @@ typedef struct user
 	int numberOfUnits;
 	int gold;
 	char type;
+	int cursorXPos;
+	int cursorYPos;
 	
 }player;
 void getPlayerName();
