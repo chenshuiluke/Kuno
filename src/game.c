@@ -3,6 +3,7 @@ int numOfPlayers = 0;
 void initializeEverything()
 {
 	retry:
+	numOfPlayers = 0;
 	numHumanPlayers = 0;
 	numCompPlayers = 0;
 	getPlayerName();
@@ -50,7 +51,7 @@ void createOtherHumanPlayers()
 		humanPlayers[numHumanPlayers].type = HUMAN;
 		numHumanPlayers++;
 		numOfPlayers++;
-		printf("Player %s has been created. Would you like to create another?[N/y]\n");
+		printf("Player %s has been created. Would you like to create another?[N/y]\n",name);
 		cont = 'N';
 		scanf("%c", &cont);
 		flush();
