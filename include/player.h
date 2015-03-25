@@ -10,6 +10,16 @@ char playerName[21];
 #define HUMAN 'h'
 #define COMPUTER 'c'
 #define NETWORK_PLAYER 'n'
+typedef struct
+{
+	char icon;
+	char unitName[15];
+	int melAttk;
+	int rangeAttk;
+	int magicAttk;
+	int genTime;
+
+}unit;
 typedef struct user
 {
 	char playerName[21];
@@ -18,7 +28,7 @@ typedef struct user
 	char type;
 	int cursorXPos;
 	int cursorYPos;
-	
+	unit queue[5];
 }player;
 void getPlayerName();
 #endif

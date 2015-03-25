@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include "menu.h"
 #include "player.h"
+#include "game.h"
 //World dimensions
 #define WORLD_WIDTH 80
 #define WORLD_HEIGHT 10
@@ -12,7 +13,7 @@
 //World block types
 #define FLAT_LAND '-'
 #define FORT ']'
-
+#define WATER '~'
 //Instructions
 #define MOVE_UP 'w'
 #define MOVE_DOWN 's'

@@ -1,4 +1,5 @@
 #include "world.h"
+#define BUY_UNIT 'b'
 extern int numOfPlayers;
 
 player allPlayers[10];

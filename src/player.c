@@ -2,7 +2,7 @@
 //http://stackoverflow.com/questions/20628099/parsing-yaml-to-values-with-libyaml-in-c
 void getPlayerName()
 {
-	FILE * readYaml = fopen("data/player/player.yaml", "r");
+	FILE * readYaml = fopen("../data/player/player.yaml", "r");
 	yaml_parser_t parser;
 	yaml_token_t token;
 
@@ -26,4 +26,8 @@ void getPlayerName()
 	}while(token.type != YAML_STREAM_END_TOKEN);
 	yaml_parser_delete(&parser);
 	fclose(readYaml);
+}
+void buyUnit(player currPlayer)
+{
+		
 }
